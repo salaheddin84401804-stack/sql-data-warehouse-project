@@ -162,5 +162,13 @@ ORDER BY total_sales DESC;
 - All layers are independent and can be rebuilt from source
 
 ---
+🙏 Acknowledgments
+This project was inspired by and learned from the excellent tutorial by Data with Baraa on YouTube:
 
-**Project Type:** Data Warehouse | **Pattern:** Medallion Architecture | **Tool:** SQL Server
+Video: SQL Data Warehouse from Scratch | Full Workshop on Data Engineering
+Channel: Data with Baraa
+
+Special thanks to Baraa for the comprehensive walkthrough of data warehouse concepts, medallion architecture, and ETL pipeline implementation. I followed the concepts and techniques demonstrated in this video to build my own implementation and deepen my understanding of data warehouse architecture.
+
+Project Type: Data Warehouse | Pattern: Medallion Architecture | Tool: SQL Server
+
