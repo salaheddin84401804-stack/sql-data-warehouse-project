@@ -1,0 +1,52 @@
+/***********************************************************************************
+Script Name: 01_database_setup.sql
+Description: Initial database and schema setup for the Data Warehouse project
+Author: Salah
+Created Date: 2025
+Project: SQL Data Warehouse - Medallion Architecture
+
+Purpose:
+    This script creates the foundation of the data warehouse by:
+    - Creating the main database 'salah'
+    - Implementing three-layer schema structure (Bronze, Silver, Gold)
+    - Following the Medallion Architecture pattern
+
+Architecture Layers:
+    1. BRONZE (bronz): Raw data ingestion zone - stores unprocessed data from sources
+    2. SILVER (silver): Cleansed data zone - validated and standardized data
+    3. GOLD (gold): Business-ready zone - dimensional model for analytics
+
+Usage:
+    Execute this script first before running any other scripts in the project.
+    It will drop the existing database if it exists and recreate it fresh.
+
+Notes:
+    - Uses SINGLE_USER mode to forcefully disconnect any active connections
+    - Safe to run multiple times (includes drop database logic)
+    - All subsequent objects will be created within these schemas
+***********************************************************************************/
+
+-- =====================================================================================
+-- DATABASE AND SCHEMA CREATION
+-- =====================================================================================
+
+if exists (select name from sys.databases where name = 'salah')
+begin
+    ALTER DATABASE salah SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    drop database salah
+end
+
+create database salah
+go
+
+use salah
+go
+
+create schema bronz
+go
+
+create schema silver
+go
+
+create schema gold
+go
